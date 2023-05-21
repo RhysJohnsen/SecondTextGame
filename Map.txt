@@ -1,0 +1,5 @@
+x.y.    desc. directions to go (as one number. last four binary digits represent if you can travel out north, east, south, and west respectively). items in brackets (first number is number of items). people outside braces.
+5050	A cold, damp prison cell.;1 { 2 1 8 } 1 1
+4950	A cobblestone hallway.;12 { 1 2 } 1 2
+4951	A barracks.;15 { 1 3 } 0
+5051	An armoury.;1 { 2 6 7 } 0

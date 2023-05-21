@@ -1,0 +1,11 @@
+ID Name Weight type Dura EquipSlot Effectiveness(EquipSlot is negative one if can't be equipped) (type of item: one - key. two - weapon. three - armor)
+1 <prison key> 1 1 100 -1 1
+2 <rusty dagger> 3 2 25 5 5
+3 <worn leather boots> 8 3 35 3 5
+4 <tattered tunic> 5 3 15 1 1
+5 <tattered leggings> 5 3 15 2 1
+6 <belt> 2 3 30 2 1
+7 <shiny dagger> 3 2 75 5 7
+8 <quilted tunic> 6 3 65 1 6
+9 <padded pants> 6 3 75 2 5
+10 <leather helmet> 3 3 75 0 3

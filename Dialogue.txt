@@ -1,0 +1,2 @@
+1.1	"It's been awhile since anyone new came through here, what's your name?"
+1.2	"<nam>? A rather fitting name. There's a key in your cell."
