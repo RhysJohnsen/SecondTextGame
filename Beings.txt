@@ -1,3 +1,3 @@
 id name health number of items, percent chance of showing up, itemid
-1 <old prisoner>3 {2 100 5 50 4}
-2 <guard>10 {4 100 7 100 8 100 9 25 10}
+1 <old prisoner>3 0 {2 100 5 50 4}
+2 <guard>10 0 {4 100 7 100 8 100 9 25 10}

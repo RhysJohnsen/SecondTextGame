@@ -19,7 +19,7 @@ public class NpcControl implements Runnable{
 		while(true){
 			int beings = player.curTile.beingCount;
 			for(int i = 0; i < beings; i++){
-				if(player.curTile.beings[i].health > 0 && player.curTile.beings[i].dmgpts > 0){
+				if(player.curTile.beings[i].health > 0 && player.curTile.beings[i].dmgpts > 0 && player.curTile.beings[i].aggressive){
 					player.changeHealth(-player.curTile.beings[i].dmgpts, player.curTile.beings[i].name);
 				}
 			}

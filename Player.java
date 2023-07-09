@@ -16,6 +16,8 @@ public class Player{
 	int posX;
 	int posY;
 	HashMap<Integer, Tile> explored;
+	Spell spellList[] = new Spell[10];
+	int spellCount;
 	
 	public Player(){
 		name = "Prisoner";
@@ -35,6 +37,9 @@ public class Player{
 		this.equip(inventory[0].getName());
 		this.equip(inventory[1].getName());
 		this.equip(inventory[2].getName());
+		spellList[0] = new Spell(0);
+		spellList[1] = new Spell(1);
+		spellCount = 2;
 		}
 	
 	public void setExplored(HashMap<Integer, Tile> exploredIn){
@@ -168,13 +173,30 @@ public class Player{
 			}
 		}
 		else if(health > 0){
-			health += dmg;
+			health += (int)dmg;
 			if(health > maxHealth){
 				dmg = dmg - (health - maxHealth);
 				health = maxHealth;
 			}
-			System.out.println("Healed " + dmg);
+			System.out.println("Healed " + (int)dmg);
 		}
 		System.out.println(health + " health remaining.");
+	}
+	
+	public void applySpell(Spell toApply){
+		switch(toApply.statChanged){
+			case 'h':
+				if(toApply.isPercent){
+					//health *= 1 + (toApply.effect / 100);
+					this.changeHealth(health * (toApply.effect / 100), "Self");
+				}
+				else{
+					//health += toApply.effect;
+					this.changeHealth(toApply.effect, "Self");
+				}
+			break;
+			default:
+				System.out.println(toApply.statChanged + "is not a valid spell stat");
+		}
 	}
 }

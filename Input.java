@@ -103,7 +103,21 @@ public class Input{
 				npcThread.resume();
 				break;
 			case "cast":
-				System.out.println("Not yet implemented");
+				System.out.println("Not yet fully implemented");
+				for(int i = 0; i < player.spellCount; i++){
+					if(in.substring(wordIndex + 1).contains(player.spellList[i].name)){
+						if(in.substring(wordIndex + 1).contains("self")){
+							player.applySpell(player.spellList[i]);
+						}
+						else{
+							Being toCastOn = player.curTile.searchBeing(in.substring(wordIndex + 2 + player.spellList[i].name.length()));
+							toCastOn.applySpell(player.spellList[i]);
+							player.curTile.setDesc();
+						}
+						i = player.spellCount;
+						npcThread.resume();
+					}
+				}
 				break;
 			case "help":
 				Printing.printHelp();

@@ -13,6 +13,7 @@ public class Being{
 	int itemCount;
 	Random rand = new Random();
 	Item equiped[] = new Item[6]; //0:head, 1:torso, 2:legs, 3:feet, 4:hands, 5:weapon
+	boolean aggressive;
 	
 	public Being(int idIn){
 		Scanner sc;
@@ -41,6 +42,12 @@ public class Being{
 						readints = line.substring(line.indexOf('>') + 1, line.indexOf('{'));
 						scl = new Scanner(readints);
 						health = scl.nextInt();
+						if(scl.nextInt() == 0){
+							aggressive = false;
+						}
+						else{
+							aggressive = true;
+						}
 						readints = line.substring(line.indexOf('{') + 1, line.indexOf('}'));
 						scl = new Scanner(readints);
 						possibleItems = scl.nextInt();
@@ -83,6 +90,10 @@ public class Being{
 	
 	public void changeHealth(double dmg){
 		if(dmg < 0 && health > 0){
+			if(!aggressive){
+				System.out.println(name + " is now aggressive.");
+				aggressive = true;
+			}
 			dmg = dmg * (1 - ((double)armourpts / 100));
 			health += (int)dmg;
 			System.out.println("Dealt " + (-(int)dmg) + " damage to " + name);
@@ -173,5 +184,22 @@ public class Being{
 		else
 			System.out.println(name + " did not have " + itemName);
 		return toReturn;
+	}
+	
+	public void applySpell(Spell toApply){
+		switch(toApply.statChanged){
+			case 'h':
+				if(toApply.isPercent){
+					//health *= 1 + (toApply.effect / 100);
+					this.changeHealth(health * (toApply.effect / 100));
+				}
+				else{
+					//health += toApply.effect;
+					this.changeHealth(toApply.effect);
+				}
+			break;
+			default:
+				System.out.println(toApply.statChanged + "is not a valid spell stat");
+		}
 	}
 }

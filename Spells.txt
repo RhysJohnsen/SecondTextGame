@@ -1,0 +1,3 @@
+id name statChanged (h health) isPercentage effectiveness (ispercentage means zero for flat change, one for percentage change)
+0 <healing> h 0 5
+1 <harming> h 0 -5

@@ -51,7 +51,7 @@ public class Item{
 			}
 		}
 		catch(FileNotFoundException e){
-			System.out.println("File Map.txt was not found.");
+			System.out.println("File Items.txt was not found.");
 		}
 	}
 	
